@@ -1,18 +1,15 @@
-## Getting Started
+## Ant Colony metaheuristic for solving the set covering problem
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The Ant Colony metaheuristic is a population based metaheuristic that generates a series of solutions in each iteration using a greedy randomised search which utilises the memory of the search. Each solution generated in an iterations is called an Ant, and these ants leave behind a "pheromone trail", indicating which elements were used in previous iterations. 
 
-## Folder Structure
+This project implements the Ant Colony metaheuristic used for solving the set covering problem in Java.
 
-The workspace contains two folders by default, where:
+The folder `Data` contains 5 different problem instances downloaded from http://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+The folder `src` contains the files with the Java code written for this project:
+ - `Instance.java` implements an Instance class, which loads a problem instance from one of the .txt files and stores the relevant information in appropriate data types.
+ - `Ant.java` implements an Ant class, with a method to construct a feasible solution to the set covering problem and a method to improve a solution using a local search procedure.
+ - `MultiThreadAnt.java` is used to parallelize the process of generating Ants/solutions, as $M$ ants are generated independently of each other in each iteration of the algorithm.
+ - `App.java` contains the main loop of the metaheuristic used to find good solutions to the set covering problem. This is where ants are generated in each iteration, the best solution found is tracked and the pheromone trail is updated.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+The folder `bin` contains the .class files.
